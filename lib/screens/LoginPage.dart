@@ -1,7 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
+// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:therapy_app/widgets/custombtn.dart';
 import 'package:therapy_app/widgets/customtf.dart';
+import 'package:therapy_app/widgets/customtxtbtn.dart'; // Import the custom text button widget
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key});
@@ -20,10 +22,9 @@ class LoginPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 50), // Adjust the height here
               Center(
                 child: Text(
                   'TheraNest',
@@ -35,7 +36,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 50),
               Padding(
                 padding: const EdgeInsets.only(left: 20),
                 child: Text(
@@ -52,29 +53,51 @@ class LoginPage extends StatelessWidget {
               CustomTextField(hintText: 'Email'),
               SizedBox(height: 20),
               CustomTextField(hintText: 'Password', obscureText: true),
-              SizedBox(height: 20), // Add space between text fields and button
+              SizedBox(height: 20),
+              CustomButton(
+                text: 'Login',
+                onPressed: () {
+                  // Handle login button pressed
+                },
+              ),
+              SizedBox(
+                  height: 10), // Add space between login button and text button
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xFF3e3121),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  width: double.infinity,
-                  height: 60,
-                  child: Center(
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.white,
-                        fontFamily: 'Pacifico',
-                      ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Don't have an account? ",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'Pacifico',
+                            fontWeight: FontWeight.normal,
+                            color: Color(0xFF3e3121),
+                          ),
+                        ),
+                        CustomTextButton(
+                          text: 'Sign Up',
+                          onPressed: () {
+                            // Handle sign up button pressed
+                          },
+                        ),
+                      ],
                     ),
-                  ),
+                    SizedBox(
+                        height:
+                            10), // Add space between sign up button and forgot password text
+                    CustomTextButton(
+                      text: 'Forgot password.',
+                      onPressed: () {
+                        // Handle forgot password button pressed
+                      },
+                    ),
+                  ],
                 ),
-              )
+              ),
             ],
           ),
         ),
