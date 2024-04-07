@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:therapy_app/screens/signup.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -18,10 +19,13 @@ class _SplashState extends State<Splash> {
   _navigateToHome(BuildContext context) async {
     // Receive the context
     // Delay for 5 seconds
-    await Future.delayed(Duration(seconds: 5));
+    await Future.delayed(Duration(seconds: 3));
 
     // Navigate to the home page
-    Navigator.pushReplacementNamed(context, '/home');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignUp()),
+    );
   }
 
   @override
