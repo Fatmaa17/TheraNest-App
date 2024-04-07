@@ -27,6 +27,7 @@ flutter:
     - assets/images/SplashScreen.jpg
     - assets/images/loginbg.jpg
     - assets/images/forget.jpeg
+    - assets/images/signup.jpg
 
   fonts:
     - family: Pacifico

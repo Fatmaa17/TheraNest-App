@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:therapy_app/screens/forget_pw.dart';
+import 'package:therapy_app/screens/signup.dart';
 import 'package:therapy_app/widgets/custombtn.dart';
 import 'package:therapy_app/widgets/customtf.dart';
 import 'package:therapy_app/widgets/customtxtbtn.dart'; // Import the custom text button widget
@@ -56,12 +58,9 @@ class LoginPage extends StatelessWidget {
               SizedBox(height: 20),
               CustomButton(
                 text: 'Login',
-                onPressed: () {
-                  // Handle login button pressed
-                },
+                onPressed: () {},
               ),
-              SizedBox(
-                  height: 10), // Add space between login button and text button
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -81,18 +80,22 @@ class LoginPage extends StatelessWidget {
                         CustomTextButton(
                           text: 'Sign Up',
                           onPressed: () {
-                            // Handle sign up button pressed
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignUp()),
+                            );
                           },
                         ),
                       ],
                     ),
-                    SizedBox(
-                        height:
-                            10), // Add space between sign up button and forgot password text
+                    SizedBox(height: 20),
                     CustomTextButton(
                       text: 'Forgot password.',
                       onPressed: () {
-                        // Handle forgot password button pressed
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => forget_pw()),
+                        );
                       },
                     ),
                   ],

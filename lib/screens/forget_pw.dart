@@ -7,7 +7,9 @@ class forget_pw extends StatefulWidget {
   const forget_pw({Key? key}) : super(key: key);
 
   @override
-  State<forget_pw> createState() => _forget_pwState();
+  State<StatefulWidget> createState() {
+    return _forget_pwState();
+  }
 }
 
 class _forget_pwState extends State<forget_pw> {
