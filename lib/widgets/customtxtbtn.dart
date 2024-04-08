@@ -21,7 +21,7 @@ class CustomTextButton extends StatelessWidget {
           fontSize: 16,
           fontWeight: FontWeight.normal,
           fontFamily: 'Pacifico',
-          color: Color(0xFF3e3121), // Text color
+          color: Color(0xFF3e3121),
         ),
       ),
     );
