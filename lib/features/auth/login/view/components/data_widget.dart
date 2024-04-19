@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:therapy_app/core/utilis/custombtn.dart';
-import 'package:therapy_app/core/utilis/customtf.dart';
-import 'package:therapy_app/core/utilis/customtxtbtn.dart';
+import 'package:therapy_app/features/auth/login/view/components/custombtn.dart';
+import 'package:therapy_app/features/auth/login/view/components/customtf.dart';
+import 'package:therapy_app/features/auth/login/view/components/customtxtbtn.dart';
 import 'package:therapy_app/features/auth/registration/view/page/registration_page.dart';
 
 class dataWidget extends StatelessWidget {

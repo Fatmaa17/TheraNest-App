@@ -1,10 +1,8 @@
-// ignore_for_file: unused_local_variable, non_constant_identifier_names, prefer_const_constructors
+// ignore_for_file: unused_local_variable, non_constant_identifier_names, prefer_const_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:therapy_app/features/auth/login/view/page/login.dart';
-import 'package:therapy_app/features/auth/onboarding/view/page/onboarding.dart';
-import 'package:therapy_app/features/auth/registration/view/page/registration_page.dart';
+
 import 'package:therapy_app/features/auth/splash/view/page/splash.dart';
 //import 'package:therapy_app/screens/splash.dart';
 

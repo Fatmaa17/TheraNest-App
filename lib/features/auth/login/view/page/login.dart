@@ -1,7 +1,6 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:therapy_app/features/auth/login/view/components/bottom_widget.dart';
 import 'package:therapy_app/features/auth/login/view/components/data_widget.dart';
 
 class loginPage extends StatelessWidget {
