@@ -12,7 +12,7 @@ class RegestrationPage extends StatelessWidget {
     body: Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("images/signup.jpg"),
+          image: AssetImage("assets/images/signup.jpg"),
           fit: BoxFit.fill,
         ),
       ),

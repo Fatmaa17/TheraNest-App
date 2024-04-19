@@ -2,15 +2,19 @@
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:therapy_app/features/auth/login/view/page/login.dart';
 import 'package:therapy_app/features/auth/onboarding/view/page/onboarding.dart';
+import 'package:therapy_app/features/auth/registration/view/page/registration_page.dart';
+import 'package:therapy_app/features/auth/splash/view/page/splash.dart';
 //import 'package:therapy_app/screens/splash.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Ensure that Flutter is initialized
+  WidgetsFlutterBinding
+      .ensureInitialized(); // Ensure that Flutter is initialized
 
   // Initialize SharedPreferences
   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  bool onBoarding = sharedPreferences.getBool('onboarding')??false;
+  bool onBoarding = sharedPreferences.getBool('onboarding') ?? false;
   runApp(const therapy_app());
 }
 
@@ -20,7 +24,7 @@ class therapy_app extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: OnboardingScreen(),
+      home: Splash(),
     );
   }
 }

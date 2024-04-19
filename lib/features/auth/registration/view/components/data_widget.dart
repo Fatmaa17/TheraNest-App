@@ -11,102 +11,91 @@ class DataWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-           const Text(
-              "Create Account",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-            ),
-            const Text("Enter Details To Get Started"),
-              const SizedBox(
-                height:30,
-                ),
-      
-          //name 
-         TextFormField(
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-            controller:TextEditingController() ,
-            keyboardType: TextInputType.name,
-            validator:TheraNestValidation().nameValidate,
-             decoration: decoration.copyWith(
-              prefixIcon: const Icon(Icons.supervised_user_circle_outlined),
-               labelText: 'User Name'
-      
-             )
-         ),
+          const Text(
+            "Create Account",
+            style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Pacifico'),
+          ),
+          const Text("Enter Details To Get Started"),
           const SizedBox(
-                height:15,
-              ),
-              //email form
-           TextFormField(
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-            controller:TextEditingController() ,
-            keyboardType: TextInputType.emailAddress,
-            validator:TheraNestValidation().emailValidator,
-             decoration:decoration.copyWith(
-               labelText: 'Email Address',
-               hintText: '*******@gmail.com'
-             )
-         ),
+            height: 30,
+          ),
+
+          //name
+          TextFormField(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              controller: TextEditingController(),
+              keyboardType: TextInputType.name,
+              validator: TheraNestValidation().nameValidate,
+              decoration: decoration.copyWith(
+                  prefixIcon: const Icon(Icons.supervised_user_circle_outlined),
+                  labelText: 'User Name')),
           const SizedBox(
-                height: 15,
-                ),
-                //password
-                  TextFormField(
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-            controller: TextEditingController(),
-           keyboardType: TextInputType.visiblePassword,
-            validator:TheraNestValidation().passwordValidator,
-             obscureText: true,
-             decoration:decoration.copyWith(
-               labelText: 'Password',
-              prefixIcon: const Icon(Icons.lock),  
-             )
-         ),
+            height: 15,
+          ),
+          //email form
+          TextFormField(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              controller: TextEditingController(),
+              keyboardType: TextInputType.emailAddress,
+              validator: TheraNestValidation().emailValidator,
+              decoration: decoration.copyWith(
+                  labelText: 'Email Address', hintText: '*******@gmail.com')),
           const SizedBox(
-                height: 15,
-                ),
-        //confirm password
-                  TextFormField(
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-            controller: TextEditingController(),
-           keyboardType: TextInputType.visiblePassword,
-            validator: (value) {
-                  return TheraNestValidation.repeatPasswordValidator(
-                      value: value, password: TextEditingController().text);
-                },
-             obscureText: true,
-             decoration:decoration.copyWith(
-               labelText: 'Confirm Password',
-               prefixIcon: const Icon(Icons.password),  
-             )
-         ),
-      
+            height: 15,
+          ),
+          //password
+          TextFormField(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              controller: TextEditingController(),
+              keyboardType: TextInputType.visiblePassword,
+              validator: TheraNestValidation().passwordValidator,
+              obscureText: true,
+              decoration: decoration.copyWith(
+                labelText: 'Password',
+                prefixIcon: const Icon(Icons.lock),
+              )),
+          const SizedBox(
+            height: 15,
+          ),
+          //confirm password
+          TextFormField(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              controller: TextEditingController(),
+              keyboardType: TextInputType.visiblePassword,
+              validator: (value) {
+                return TheraNestValidation.repeatPasswordValidator(
+                    value: value, password: TextEditingController().text);
+              },
+              obscureText: true,
+              decoration: decoration.copyWith(
+                labelText: 'Confirm Password',
+                prefixIcon: const Icon(Icons.password),
+              )),
         ],
-        
-          
       ),
     );
   }
-InputDecoration decoration=InputDecoration(
-                prefixIcon: const Icon(Icons.email_outlined),
-                labelText: 'Email Address',
-               border: UnderlineInputBorder(
-                 borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(
-                  color:Color(0xffE3D7A4),
-                  width: 2,
-                ) 
-               ),
-               focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Color(0xff704F34),
-                  width: 2,
-                ) 
-               ),
-               errorBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Color(0xffE3453E),
-                  width:2,
-                ) 
-               )
-              );
+
+  InputDecoration decoration = InputDecoration(
+      prefixIcon: const Icon(Icons.email_outlined),
+      labelText: 'Email Address',
+      border: UnderlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: const BorderSide(
+            color: Color(0xffE3D7A4),
+            width: 2,
+          )),
+      focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+        color: Color(0xff704F34),
+        width: 2,
+      )),
+      errorBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+        color: Color(0xffE3453E),
+        width: 2,
+      )));
 }
