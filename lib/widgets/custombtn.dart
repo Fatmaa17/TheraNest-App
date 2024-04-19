@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         width:
-            double.infinity, // Make the button width expand to its parent width
+            double.infinity,
         child: ElevatedButton(
           onPressed: onPressed,
           child: Text(
@@ -28,11 +28,11 @@ class CustomButton extends StatelessWidget {
             ),
           ),
           style: ElevatedButton.styleFrom(
-            primary: Color(0xFF3e3121), // Button color
-            onPrimary: Colors.white, // Text color
-            padding: EdgeInsets.symmetric(vertical: 15), // Button padding
+            primary: Color(0xFF3e3121), 
+            onPrimary: Colors.white, 
+            padding: EdgeInsets.symmetric(vertical: 15), 
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8), // Button border radius
+              borderRadius: BorderRadius.circular(8), 
             ),
           ),
         ),
