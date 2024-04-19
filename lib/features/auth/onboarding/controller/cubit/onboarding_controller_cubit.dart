@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:therapy_app/features/auth/onboarding/model/onboarding_model.dart';
+import 'package:therapy_app/features/auth/onboarding/model/OnboardingModel.dart';
 
 part 'onboarding_controller_state.dart';
 
@@ -40,6 +40,6 @@ class OnboardingControllerCubit extends Cubit<OnboardingControllerState> {
         image: 'assets/images/03.jpeg',
         title: 'Qualified Professionals',
         subTitle:
-            'Our network is made up of culturally-relevant, bilingual, highly-trained professionals, qualified to support you.')
+            'Our network is made up of culturally-relevant, bilingual, highly-trained professionals, qualified to support you.'),
   ];
 }

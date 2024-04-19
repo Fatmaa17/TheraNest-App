@@ -1,0 +1,41 @@
+name: therapy_app
+description: "A new Flutter project."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.2.6 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_native_splash: ^2.3.11
+  shared_preferences: ^2.2.3
+  flutter_bloc: ^8.1.5
+  meta: ^1.10.0
+
+flutter_native_splash:
+  background_image: "assets/images/SplashScreen.jpg"
+  image: "assets/images/SplashScreen.jpg"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/SplashScreen.jpg
+    - assets/images/loginbg.jpg
+    - assets/images/forget.jpeg
+    - assets/images/signup.jpg
+    - assets/images/01.jpeg
+    - assets/images/02.jpeg
+    - assets/images/03.jpeg
+
+  fonts:
+    - family: Pacifico
+      fonts:
+        - asset: assets/fonts/Pacifico-Regular.ttf
