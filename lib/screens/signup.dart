@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:therapy_app/screens/LoginPage.dart';
-import 'package:therapy_app/screens/my_validators.dart';
+import 'package:therapy_app/core/utilis/my_validators.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});

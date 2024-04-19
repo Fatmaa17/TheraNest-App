@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, camel_case_types
 //import 'package:firebase_auth/firebase_auth.dart'; // Import FirebaseAuth package
 
 import 'package:flutter/material.dart';
+import 'package:therapy_app/screens/LoginPage.dart';
 
 class forget_pw extends StatefulWidget {
   const forget_pw({Key? key}) : super(key: key);
@@ -92,8 +93,25 @@ class _forget_pwState extends State<forget_pw> {
                 child: Text(
                   'Reset Password',
                   style: TextStyle(
-                    fontFamily: 'Pacifico', // Applying Pacifico font
-                    color: Colors.white, // Set text color to white
+                    fontFamily: 'Pacifico',
+                    color: Colors.white,
+                  ),
+                ),
+                color: Color(0xFF3e3121),
+              ),
+              SizedBox(height: 10),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
+                child: Text(
+                  'Back to login',
+                  style: TextStyle(
+                    fontFamily: 'Pacifico',
+                    color: Colors.white,
                   ),
                 ),
                 color: Color(0xFF3e3121),
