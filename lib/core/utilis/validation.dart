@@ -1,18 +1,17 @@
-class MyValidators {
-  //username
-  static String? displayNamevalidator(String? displayName) {
-    if (displayName == null || displayName.isEmpty) {
+class TheraNestValidation{
+  String? nameValidate(String? displayName)
+  {
+     if (displayName == null || displayName.isEmpty) {
       return 'Please Enter Your Name';
     }
     if (displayName.length < 3 || displayName.length > 20) {
       return 'Display name must be between 3 and 20 characters';
     }
-
+//correct
     return null;
   }
-
-//email
-  static String? emailValidator(String? value) {
+  //email
+   String? emailValidator(String? value) {
     if (value!.isEmpty) {
       return 'Please enter an email';
     }
@@ -22,9 +21,8 @@ class MyValidators {
     }
     return null;
   }
-
-//pass
-  static String? passwordValidator(String? value) {
+  //pass
+  String? passwordValidator(String? value) {
     if (value!.isEmpty) {
       return 'Please enter a password';
     }
@@ -34,7 +32,7 @@ class MyValidators {
     return null;
   }
 
-  static String? repeatPasswordValidator({String? value, String? password}) {
+ static  String? repeatPasswordValidator({String? value, String? password}) {
     if (value != password) {
       return 'Password doesn\'t match';
     }
