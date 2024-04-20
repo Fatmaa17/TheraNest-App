@@ -1,56 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:therapy_app/features/auth/registration/controller/registration_cubit.dart';
 
-class ButtomNavigationWidget extends StatelessWidget {
-  const ButtomNavigationWidget({super.key});
+class BottomNavigationWidget extends StatelessWidget {
+  final RegistrationCubit controller;
+
+  const BottomNavigationWidget({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 50,
-          child: ElevatedButton.icon(
-            style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xffE1D69E),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0))),
-            onPressed: () {},
-            icon: const Icon(
-              Icons.verified_user,
-              color: Colors.black87,
-            ),
-            label: const Text(
-              'Sign Up',
-              style: TextStyle(
-                  fontFamily: 'Pacifico',
-                  fontSize: 16.0,
-                  color: Colors.black87,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Do you have account already?',
-                style: TextStyle(fontFamily: 'Pacifico')),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '');
-              },
-              child: const Text(
-                'Login',
-                style: TextStyle(
-                  fontFamily: 'Pacifico',
-                  color: Colors.brown,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
+    return BlocProvider<RegistrationCubit>.value(
+      value: controller,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 40.0),
+        child: BlocBuilder<RegistrationCubit, RegistrationState>(
+          builder: (context, state) {
+            return Column(
+              children: [
+                SizedBox(
+                  height: 50,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xffE1D69E),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                    onPressed: () {
+                      controller.onPressedConfirmButton();
+                    },
+                    icon: const Icon(
+                      Icons.verified_user,
+                      color: Colors.black87,
+                    ),
+                    label: const Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            )
-          ],
-        )
-      ],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Do you have an account already?'),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '');
+                      },
+                      child: const Text(
+                        'Login',
+                        style: TextStyle(
+                          color: Colors.brown,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 }

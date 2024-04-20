@@ -2,8 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'package:therapy_app/features/auth/login/view/page/login.dart';
+import 'package:therapy_app/features/auth/onboarding/view/page/onboarding.dart';
+import 'package:therapy_app/features/auth/registration/view/page/registration_page.dart';
 import 'package:therapy_app/features/auth/splash/view/page/splash.dart';
+
 //import 'package:therapy_app/screens/splash.dart';
 
 void main() async {
@@ -21,8 +24,35 @@ class therapy_app extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Splash(),
-    );
+    return MaterialApp(home: Splash());
+  }
+}
+
+class myRoutes {
+  static List<Route> initRoutes(RouteSettings initialRoute) {
+    return [
+      MaterialPageRoute<dynamic>(
+        builder: (BuildContext context) => const OnboardingScreen(),
+      ),
+      MaterialPageRoute<dynamic>(
+        builder: (BuildContext context) => const RegestrationPage(),
+      ),
+    ];
+  }
+
+  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case 'login':
+        return MaterialPageRoute<dynamic>(
+            builder: (BuildContext context) => const loginPage());
+      case 'registration':
+        return MaterialPageRoute<dynamic>(
+            builder: (BuildContext context) => const RegestrationPage());
+
+      default:
+        return MaterialPageRoute<dynamic>(
+          builder: (BuildContext context) => const OnboardingScreen(),
+        );
+    }
   }
 }

@@ -2,7 +2,7 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:therapy_app/features/auth/registration/view/page/registration_page.dart';
+import 'package:therapy_app/features/auth/onboarding/view/page/onboarding.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -26,7 +26,7 @@ class _SplashState extends State<Splash> {
     // Navigate to the home page
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => const RegestrationPage()),
+      MaterialPageRoute(builder: (context) => const OnboardingScreen()),
     );
   }
 

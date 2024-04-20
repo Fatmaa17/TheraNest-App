@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:therapy_app/features/auth/onboarding/controller/cubit/onboarding_controller_cubit.dart';
 
 class OnboardingBody extends StatelessWidget {
-  const OnboardingBody({Key? key}) : super(key: key);
+  const OnboardingBody({Key? key, required this.controller}) : super(key: key);
+
+  final OnboardingControllerCubit controller;
 
   @override
   Widget build(BuildContext context) {
@@ -11,14 +13,14 @@ class OnboardingBody extends StatelessWidget {
       children: [
         Expanded(
           child: BlocProvider(
-            create: (context) => OnboardingControllerCubit(),
+            create: (context) => controller,
             child: BlocBuilder<OnboardingControllerCubit,
                 OnboardingControllerState>(
               builder: (context, state) {
-                OnboardingControllerCubit controller =
-                    context.read<OnboardingControllerCubit>();
+                final controller = context.read<OnboardingControllerCubit>();
 
                 return PageView(
+                  controller: controller.pageController,
                   children: List.generate(controller.data.length, (index) {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -28,10 +30,11 @@ class OnboardingBody extends StatelessWidget {
                         Text(
                           controller.data[index].title,
                           style: const TextStyle(
-                              fontSize: 30,
-                              fontFamily: 'Pacifico',
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xffdfbd90)),
+                            fontSize: 30,
+                            fontFamily: 'Pacifico',
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xffdfbd90),
+                          ),
                         ),
                         SizedBox(height: 8),
                         Center(
@@ -40,10 +43,11 @@ class OnboardingBody extends StatelessWidget {
                             controller.data[index].subTitle,
                             textAlign: TextAlign.center, // Align text to center
                             style: const TextStyle(
-                                fontSize: 15,
-                                fontFamily: 'Pacifico',
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 2, 2, 2)),
+                              fontSize: 15,
+                              fontFamily: 'Pacifico',
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 2, 2, 2),
+                            ),
                           ),
                         )
                       ],
