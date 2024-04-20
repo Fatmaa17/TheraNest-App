@@ -22,7 +22,7 @@ class OnboardingControllerCubit extends Cubit<OnboardingControllerState> {
   Future<void> onCallSkip(BuildContext context) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences.setBool('onboarding', true);
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
       MaterialPageRoute<void>(
         builder: (BuildContext context) => const RegestrationPage(),

@@ -2,7 +2,9 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:therapy_app/features/auth/login/view/page/login.dart';
 import 'package:therapy_app/features/auth/onboarding/view/page/onboarding.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -15,19 +17,26 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    _navigateToHome(context); // Pass the context
+    _navigateToHome(); // No need to pass context here
   }
 
-  _navigateToHome(BuildContext context) async {
-    // Receive the context
-    // Delay for 5 seconds
+  _navigateToHome() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    bool onboardingCompleted = sharedPreferences.getBool('onboarding') ?? false;
+
     await Future.delayed(const Duration(seconds: 3));
 
-    // Navigate to the home page
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const OnboardingScreen()),
-    );
+    if (onboardingCompleted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const loginPage()),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const OnboardingScreen()),
+      );
+    }
   }
 
   @override
