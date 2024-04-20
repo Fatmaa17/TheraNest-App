@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:therapy_app/features/auth/forgetPassword/view/page/forgetPW.dart';
 import 'package:therapy_app/features/auth/login/view/components/custombtn.dart';
 import 'package:therapy_app/features/auth/login/view/components/customtf.dart';
 import 'package:therapy_app/features/auth/login/view/components/customtxtbtn.dart';
@@ -85,7 +86,7 @@ class dataWidget extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20),
-                  /*CustomTextButton(
+                  CustomTextButton(
                     text: 'Forgot password.',
                     onPressed: () {
                       Navigator.push(
@@ -93,7 +94,7 @@ class dataWidget extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => forget_pw()),
                       );
                     },
-                  ),*/
+                  ),
                 ],
               ),
             ),

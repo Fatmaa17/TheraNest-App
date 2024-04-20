@@ -23,9 +23,15 @@ class DataWidget extends StatelessWidget {
                 children: [
                   const Text(
                     "Create Account",
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Pacifico'),
                   ),
-                  const Text("Enter Details To Get Started"),
+                  const Text(
+                    "Enter Details To Get Started",
+                    style: TextStyle(fontFamily: 'Pacifico'),
+                  ),
                   const SizedBox(
                     height: 30,
                   ),

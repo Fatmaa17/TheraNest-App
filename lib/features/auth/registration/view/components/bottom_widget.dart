@@ -5,7 +5,8 @@ import 'package:therapy_app/features/auth/registration/controller/registration_c
 class BottomNavigationWidget extends StatelessWidget {
   final RegistrationCubit controller;
 
-  const BottomNavigationWidget({Key? key, required this.controller}) : super(key: key);
+  const BottomNavigationWidget({Key? key, required this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +37,7 @@ class BottomNavigationWidget extends StatelessWidget {
                     label: const Text(
                       'Sign Up',
                       style: TextStyle(
+                        fontFamily: 'Pacifico',
                         fontSize: 16.0,
                         color: Colors.black87,
                         fontWeight: FontWeight.bold,
@@ -46,7 +48,10 @@ class BottomNavigationWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Do you have an account already?'),
+                    const Text(
+                      'Do you have an account already?',
+                      style: TextStyle(fontFamily: 'Pacifico'),
+                    ),
                     TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '');
@@ -54,6 +59,7 @@ class BottomNavigationWidget extends StatelessWidget {
                       child: const Text(
                         'Login',
                         style: TextStyle(
+                          fontFamily: 'Pacifico',
                           color: Colors.brown,
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline,
