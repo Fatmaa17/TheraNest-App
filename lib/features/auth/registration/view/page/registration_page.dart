@@ -3,6 +3,7 @@ import 'package:therapy_app/features/auth/registration/controller/registration_c
 import 'package:therapy_app/features/auth/registration/view/components/bottom_widget.dart';
 import 'package:therapy_app/features/auth/registration/view/components/data_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+//Trying new branch
 
 class RegestrationPage extends StatelessWidget {
   const RegestrationPage({Key? key}) : super(key: key);
