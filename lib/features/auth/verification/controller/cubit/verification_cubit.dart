@@ -1,8 +1,7 @@
-import 'dart:html';
+// ignore_for_file: avoid_print
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 part 'verification_state.dart';
 
@@ -15,8 +14,7 @@ class VerificationCubit extends Cubit<VerificationState> {
     if (pinCodeController.text == code) {
       //navigate from registration to home
       print("valid");
-    }
-    else{
+    } else {
       print("invalid");
     }
   }
