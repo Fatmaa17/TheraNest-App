@@ -27,10 +27,10 @@ class verificationPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  Text(
+                  const Text(
                     "please Enter your code",
                     style: TextStyle(
                         color: Color(0xFF3e3121),
@@ -38,7 +38,7 @@ class verificationPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Pacifico'),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height:30,
                   ),
                  
