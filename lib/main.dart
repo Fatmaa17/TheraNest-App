@@ -44,7 +44,7 @@ class therapy_app extends StatelessWidget {
 class myRoutes {
   static List<Route> initRoutes = [
     MaterialPageRoute<dynamic>(
-      builder: (BuildContext context) => const dashboardPage(),
+      builder: (BuildContext context) =>  dashboardPage(),
     ),
   ];
 

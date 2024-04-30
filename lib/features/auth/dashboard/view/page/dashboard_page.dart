@@ -1,12 +1,15 @@
-// ignore_for_file: unused_local_variable, prefer_const_constructors, camel_case_types
+// ignore_for_file: unused_local_variable, prefer_const_constructors, camel_case_types, must_be_immutable
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:therapy_app/features/auth/dashboard/controller/cubit/dashboard_controller_cubit.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/view/page/service_page.dart';
 
 class dashboardPage extends StatelessWidget {
-  const dashboardPage({super.key});
+  List<String> titles = ['Home', 'Users', 'Services'];
+
+  dashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +22,19 @@ class dashboardPage extends StatelessWidget {
           return Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.black12,
+                title: Text(titles[controller.selectedTapIndex]),
+                actions: [
+                  IconButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, 'registration');
+                      },
+                      icon: Icon(CupertinoIcons.add))
+                ],
               ),
               body: PageView(
                 controller: controller.pageController,
                 onPageChanged: controller.onChangeTapIndex,
-                children: const [Text('Home'), Text('Users'), Text('services')],
+                children: const [Text('Home'), Text('Users'), ServicePage()],
               ),
               bottomNavigationBar: BottomNavigationBar(
                 currentIndex: controller.selectedTapIndex,
