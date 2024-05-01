@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:label="therapy_app"
-        android:name="${TheraNest}"
         android:icon="@mipmap/therapy">
         <activity
             android:name=".MainActivity"
