@@ -9,6 +9,7 @@ class OnboardingBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Expanded(
@@ -25,7 +26,14 @@ class OnboardingBody extends StatelessWidget {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(controller.data[index].image),
+                        //media query 
+                        SizedBox(
+                          width: size.width*0.7,
+                          height: size.height*0.33,
+                          child: Image.asset(controller.data[index].image,
+
+
+                          )),
                         SizedBox(height: 16),
                         Text(
                           controller.data[index].title,
@@ -43,7 +51,7 @@ class OnboardingBody extends StatelessWidget {
                             controller.data[index].subTitle,
                             textAlign: TextAlign.center, // Align text to center
                             style: const TextStyle(
-                              fontSize: 15,
+                              fontSize: 24,
                               fontFamily: 'Pacifico',
                               fontWeight: FontWeight.bold,
                               color: Color.fromARGB(255, 2, 2, 2),

@@ -17,6 +17,8 @@ dependencies:
   pin_code_fields: ^8.0.1
   bloc: ^8.1.4
   device_preview: ^1.1.0
+  sqflite: ^2.3.2
+  path: ^1.8.3
 
 flutter_native_splash:
   background_image: "assets/images/SplashScreen.jpg"
