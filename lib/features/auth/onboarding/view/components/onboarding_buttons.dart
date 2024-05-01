@@ -21,10 +21,15 @@ class OnBoardingButtons extends StatelessWidget {
                 children: [
                   TextButton(
                       onPressed: () => controller.onCallSkip(context),
-                      child: const Text("Skip")),
+                      child: const Text("Skip",style: TextStyle(
+                        fontSize: 18,
+                      ),)),
                   TextButton(
                       onPressed: controller.onChangeToNext,
-                      child: const Text("Next"))
+                      child: const Text("Next",style: TextStyle(
+                        fontSize: 18,
+                      ),
+                      ))
                 ]),
           );
         },

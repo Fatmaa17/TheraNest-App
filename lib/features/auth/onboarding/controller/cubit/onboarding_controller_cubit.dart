@@ -16,7 +16,7 @@ class OnboardingControllerCubit extends Cubit<OnboardingControllerState> {
 
   void onChangeToNext() {
     pageController.nextPage(
-        duration: Duration(seconds: 2), curve: Curves.bounceIn);
+        duration: Duration(seconds: 2), curve: Curves.linear);
   }
 
   Future<void> onCallSkip(BuildContext context) async {
