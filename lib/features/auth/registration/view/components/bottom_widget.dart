@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/model/repo/local_db_data.dart';
 import 'package:therapy_app/features/auth/login/view/page/login.dart';
 import 'package:therapy_app/features/auth/registration/controller/registration_cubit.dart';
 import 'package:therapy_app/features/auth/verification/view/page/verification_page.dart';
+
 class BottomNavigationWidget extends StatelessWidget {
   final RegistrationCubit controller;
 
@@ -28,13 +32,16 @@ class BottomNavigationWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    onPressed: () {
-                      controller.onPressedConfirmButton();
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => verificationPage()),
-                        );
+                    onPressed: () async {
+                      await (await DBRepo.instance)!
+                          .insert(name: 'Fatma', address: 'menofia');
+                      log("Success");
+                      // controller.onPressedConfirmButton();
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //       builder: (context) => verificationPage()),
+                      // );
                     },
                     icon: const Icon(
                       Icons.verified_user,
@@ -59,10 +66,10 @@ class BottomNavigationWidget extends StatelessWidget {
                       style: TextStyle(fontFamily: 'Pacifico'),
                     ),
                     TextButton(
-                      onPressed: () {
-                       Navigator.push(
+                      onPressed: () async {
+                        Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) =>loginPage()),
+                          MaterialPageRoute(builder: (context) => loginPage()),
                         );
                       },
                       child: const Text(
