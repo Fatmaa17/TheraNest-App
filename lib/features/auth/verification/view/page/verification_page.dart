@@ -26,32 +26,27 @@ class verificationPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Center(
                     child: Padding(
                       padding: EdgeInsets.only(top: 20.0),
-                     
-                        child: SizedBox(
-                          width:context.width,
-                          child: Text(
-                            "Please Enter your code",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color(0xFF3e3121),
-                                 
-                                fontSize: 35,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Pacifico'),
-                          ),
+                      child: SizedBox(
+                        width: context.width,
+                        child: const Text(
+                          "Please Enter your code",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Color(0xFF3e3121),
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Pacifico'),
                         ),
-                      
+                      ),
                     ),
                   ),
-                  SizedBox(
-                    height:15,
-
+                  const SizedBox(height: 15),
                   SizedBox(
                     child: PinCodeTextField(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -107,7 +102,7 @@ class verificationPage extends StatelessWidget {
                   ),
                   IconButton(
                       onPressed: cubit.confirm,
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.done,
                         size: 50,
                         color: Color(0xFF3e3121),

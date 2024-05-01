@@ -3,12 +3,11 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:therapy_app/features/auth/dashboard/view/page/dashboard_page.dart';
 import 'package:therapy_app/features/auth/login/view/page/login.dart';
 import 'package:therapy_app/features/auth/onboarding/view/page/onboarding.dart';
 import 'package:therapy_app/features/auth/registration/view/page/registration_page.dart';
 import 'package:therapy_app/features/auth/splash/view/page/splash.dart';
-import 'package:device_preview/device_preview.dart';
+import 'package:therapy_app/features/auth/verification/view/page/verification_page.dart';
 //import 'package:therapy_app/screens/splash.dart';
 
 void main() async {
@@ -39,16 +38,16 @@ class therapy_app extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       builder: DevicePreview.appBuilder,
-      useInheritedMediaQuery: true,
-      home: Splash());
+        builder: DevicePreview.appBuilder,
+        useInheritedMediaQuery: true,
+        home: Splash());
   }
 }
 
 class myRoutes {
   static List<Route> initRoutes = [
     MaterialPageRoute<dynamic>(
-      builder: (BuildContext context) =>  dashboardPage(),
+      builder: (BuildContext context) => verificationPage(),
     ),
   ];
 
