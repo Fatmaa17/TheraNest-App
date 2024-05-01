@@ -23,13 +23,7 @@ class dashboardPage extends StatelessWidget {
               appBar: AppBar(
                 backgroundColor: Colors.black12,
                 title: Text(titles[controller.selectedTapIndex]),
-                actions: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'registration');
-                      },
-                      icon: Icon(CupertinoIcons.add))
-                ],
+                
               ),
               body: PageView(
                 controller: controller.pageController,

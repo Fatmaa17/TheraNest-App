@@ -3,6 +3,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:therapy_app/features/auth/dashboard/view/page/dashboard_page.dart';
 import 'package:therapy_app/features/auth/login/view/page/login.dart';
 import 'package:therapy_app/features/auth/onboarding/view/page/onboarding.dart';
 import 'package:therapy_app/features/auth/registration/view/page/registration_page.dart';
@@ -47,7 +48,7 @@ class therapy_app extends StatelessWidget {
 class myRoutes {
   static List<Route> initRoutes = [
     MaterialPageRoute<dynamic>(
-      builder: (BuildContext context) => verificationPage(),
+      builder: (BuildContext context) => dashboardPage(),
     ),
   ];
 

@@ -32,16 +32,13 @@ class BottomNavigationWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                    onPressed: () async {
-                      await (await DBRepo.instance)!
-                          .insert(name: 'Fatma', address: 'menofia');
-                      log("Success");
-                      // controller.onPressedConfirmButton();
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //       builder: (context) => verificationPage()),
-                      // );
+                    onPressed: () {
+                      controller.onPressedConfirmButton();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => verificationPage()),
+                      );
                     },
                     icon: const Icon(
                       Icons.verified_user,

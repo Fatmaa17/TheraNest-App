@@ -1,10 +1,15 @@
-part of 'service_cubit.dart';
+import 'package:flutter/material.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/model/serviceModel.dart';
 
 @immutable
-sealed class ServiceState {}
+abstract class ServiceState {}
 
-final class ServiceLoading extends ServiceState {}
+class ServiceLoading extends ServiceState {}
 
-final class ServiceLoaded extends ServiceState {}
+class ServiceLoaded extends ServiceState {
+  final List<ServiceModel> services;
 
-final class ServiceEmpty extends ServiceState {}
+  ServiceLoaded(this.services);
+}
+
+class ServiceEmpty extends ServiceState {}
