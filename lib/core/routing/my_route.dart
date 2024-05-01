@@ -1,9 +1,9 @@
 // my_route.dart
 
 import 'package:flutter/material.dart';
-import 'package:therapy_app/features/dashboard/view/page/dashboard_page.dart';
+import 'package:therapy_app/features/auth/dashboard/view/page/dashboard_page.dart';
 
-class MyRoute extends NavigatorObserver {
+class MyRoute {
   static List<Route<dynamic>> initialRoutes = [
     MaterialPageRoute(builder: (_) => const DashboardPage()),
   ];
