@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -27,22 +26,34 @@ class verificationPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 40,
                   ),
-                  const Text(
-                    "please Enter your code",
-                    style: TextStyle(
-                        color: Color(0xFF3e3121),
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Pacifico'),
+                  Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 20.0),
+                     
+                        child: SizedBox(
+                          width:context.width,
+                          child: Text(
+                            "Please Enter your code",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Color(0xFF3e3121),
+                                 
+                                fontSize: 35,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Pacifico'),
+                          ),
+                        ),
+                      
+                    ),
                   ),
-                  const SizedBox(
-                    height:30,
-                  ),
-                 
-                    PinCodeTextField(
+                  SizedBox(
+                    height:15,
+
+                  SizedBox(
+                    child: PinCodeTextField(
                       mainAxisAlignment: MainAxisAlignment.center,
                       appContext: context,
                       pastedTextStyle: TextStyle(
@@ -63,16 +74,16 @@ class verificationPage extends StatelessWidget {
                       },
                       pinTheme: PinTheme(
                           shape: PinCodeFieldShape.circle,
-                          // fieldOuterPadding: EdgeInsets.all(
-                          //  context.width/75),
-                          fieldHeight:  context.width/10,
-                          fieldWidth: context.height /10,
+                          fieldOuterPadding: EdgeInsets.symmetric(
+                              horizontal: context.width / 70),
+                          fieldHeight: context.height / 6,
+                          fieldWidth: context.width / 6,
                           activeFillColor: Colors.white,
                           inactiveFillColor: Color(0xffE4D7A3),
                           inactiveColor: Color(0xffE4D7A3),
-                          activeColor:  Color(0xffE4D7A3),
+                          activeColor: Color(0xffE4D7A3),
                           selectedFillColor: Colors.white,
-                          selectedColor:  Color(0xffE4D7A3)),
+                          selectedColor: Color(0xffE4D7A3)),
                       cursorColor: Colors.black,
                       animationDuration: const Duration(milliseconds: 300),
                       enableActiveFill: true,
@@ -93,9 +104,14 @@ class verificationPage extends StatelessWidget {
                       // },
                       onChanged: (value) {},
                     ),
-                  
-                  IconButton(onPressed: cubit.confirm, icon: Icon(Icons.done,
-                  size: 50, color: Color(0xFF3e3121),)),
+                  ),
+                  IconButton(
+                      onPressed: cubit.confirm,
+                      icon: Icon(
+                        Icons.done,
+                        size: 50,
+                        color: Color(0xFF3e3121),
+                      )),
                 ],
               ),
             ),

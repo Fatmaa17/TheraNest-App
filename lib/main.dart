@@ -1,5 +1,6 @@
 // ignore_for_file: unused_local_variable, non_constant_identifier_names, prefer_const_constructors, camel_case_types
 
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:therapy_app/features/auth/dashboard/view/page/dashboard_page.dart';
@@ -37,7 +38,10 @@ class therapy_app extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Splash());
+    return MaterialApp(
+       builder: DevicePreview.appBuilder,
+      useInheritedMediaQuery: true,
+      home: Splash());
   }
 }
 
