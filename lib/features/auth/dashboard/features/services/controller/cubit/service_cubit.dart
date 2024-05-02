@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/controller/cubit/service_state.dart';
@@ -19,9 +21,14 @@ class ServiceCubit extends Cubit<ServiceState> {
         ["Depression", 'Anxiety']);
     await repo.insertServices('Amany', 'Depression', 666.0, 12, ['En', 'Fr'],
         ["Depression", 'Anxiety']);
-
+    await repo.insertServices('Elise Salwan', 'Psychologist', 1300.0, 10,
+        ['En', 'Fr', 'Ar'], ["Depression", 'Anxiety', 'Panic Disorder']);
+    await repo.insertServices('Enas Risk', 'Psychologist', 850.0, 4,
+        ['En', 'Ar'], ["Depression", 'anic Disorder']);
+    await repo.insertServices('Sara Sultan', 'Psychologist', 800.0, 3,
+        ['En', 'Ar'], ["Female Sexual dysfunction", 'Couble Therapy']);
     services = await repo.fetchServices();
-
+    log('Fetched ');
     if (services.isEmpty) {
       emit(ServiceEmpty());
     } else {
