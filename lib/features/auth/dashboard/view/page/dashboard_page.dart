@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:therapy_app/features/auth/dashboard/controller/cubit/dashboard_cubit.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/view/page/service_page.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class DashboardPage extends StatelessWidget {
                 children: const [
                   Text('Home'),
                   Text('Activity'),
-                  Text('Services'),
+                  ServicePage(),
                   Text('More'),
                 ],
               ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:therapy_app/features/auth/dashboard/features/services/model/serviceModel.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/model/service_model/serviceModel.dart';
 
 class ServiceItemWidget extends StatelessWidget {
   const ServiceItemWidget({Key? key, required this.serviceModel})
@@ -12,32 +12,22 @@ class ServiceItemWidget extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'ID: ${serviceModel.id ?? 'N/A'}',
-          style: const TextStyle(fontFamily: 'Pacifico'),
+          serviceModel.name ?? 'Empty',
         ),
         Text(
-          'Name: ${serviceModel.name ?? 'N/A'}',
-          style: const TextStyle(fontFamily: 'Pacifico'),
+          serviceModel.specialty ?? 'NA',
         ),
         Text(
-          'Specialty: ${serviceModel.specialty ?? 'N/A'}',
-          style: const TextStyle(fontFamily: 'Pacifico'),
+          '${serviceModel.sessionPrice ?? 'NA'}',
         ),
         Text(
-          'Session Price: ${serviceModel.sessionPrice ?? 'N/A'}',
-          style: const TextStyle(fontFamily: 'Pacifico'),
+          '${serviceModel.experienceYears ?? 'NA'}',
         ),
         Text(
-          'Experience Years: ${serviceModel.experienceYears ?? 'N/A'}',
-          style: const TextStyle(fontFamily: 'Pacifico'),
+          serviceModel.languages?.join(', ') ?? 'Empty',
         ),
         Text(
-          'Languages: ${serviceModel.languages?.join(', ') ?? 'N/A'}',
-          style: const TextStyle(fontFamily: 'Pacifico'),
-        ),
-        Text(
-          'Fields: ${serviceModel.fields?.join(', ') ?? 'N/A'}',
-          style: const TextStyle(fontFamily: 'Pacifico'),
+          serviceModel.fields?.join(', ') ?? 'Empty',
         ),
       ],
     );

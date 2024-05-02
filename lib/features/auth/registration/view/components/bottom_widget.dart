@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:therapy_app/features/auth/dashboard/features/services/model/repo/local_db_data.dart';
 import 'package:therapy_app/features/auth/login/view/page/login.dart';
 import 'package:therapy_app/features/auth/registration/controller/registration_cubit.dart';
 import 'package:therapy_app/features/auth/verification/view/page/verification_page.dart';
