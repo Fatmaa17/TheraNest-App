@@ -26,7 +26,7 @@ class verificationPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Center(
@@ -47,7 +47,7 @@ class verificationPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 15,
+                    height:15,
                   ),
                   SizedBox(
                     child: PinCodeTextField(

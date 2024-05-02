@@ -1,10 +1,10 @@
-part of 'service_cubit.dart';
+import 'package:flutter/material.dart';
 
 @immutable
-sealed class ServiceState {}
+abstract class ServiceState {}
 
-final class ServiceLoading extends ServiceState {}
+class ServiceLoading extends ServiceState {}
 
-final class ServiceLoaded extends ServiceState {}
+class ServiceLoaded extends ServiceState {}
 
-final class ServiceEmpty extends ServiceState {}
+class ServiceEmpty extends ServiceState {}

@@ -1,22 +1,34 @@
-import 'package:bloc/bloc.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:therapy_app/features/auth/dashboard/features/services/model/repo/local_db_data.dart';
-import 'package:therapy_app/features/auth/dashboard/features/services/model/serviceModel.dart';
+import 'dart:developer';
 
-part 'service_state.dart';
+import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/controller/cubit/service_state.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/model/repo/DBRepo.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/model/service_model/serviceModel.dart';
 
 class ServiceCubit extends Cubit<ServiceState> {
   ServiceCubit() : super(ServiceLoading()) {
-    init();
+    initDatabase();
   }
 
   List<ServiceModel> services = [];
+  DBRepo repo = DBRepo();
 
-  void init() async {
+  Future<void> initDatabase() async {
     emit(ServiceLoading());
-    services = await (await DBRepo.instance)!.fetch();
+    await repo.initDatabase();
+    await repo.insertServices('Fatima', 'Depression', 500.0, 12, ['En', 'Fr'],
+        ["Depression", 'Anxiety']);
+    await repo.insertServices('Amany', 'Depression', 666.0, 12, ['En', 'Fr'],
+        ["Depression", 'Anxiety']);
+    await repo.insertServices('Elise Salwan', 'Psychologist', 1300.0, 10,
+        ['En', 'Fr', 'Ar'], ["Depression", 'Anxiety', 'Panic Disorder']);
+    await repo.insertServices('Enas Risk', 'Psychologist', 850.0, 4,
+        ['En', 'Ar'], ["Depression", 'anic Disorder']);
+    await repo.insertServices('Sara Sultan', 'Psychologist', 800.0, 3,
+        ['En', 'Ar'], ["Female Sexual dysfunction", 'Couble Therapy']);
+    services = await repo.fetchServices();
+    log('Fetched ');
     if (services.isEmpty) {
       emit(ServiceEmpty());
     } else {
