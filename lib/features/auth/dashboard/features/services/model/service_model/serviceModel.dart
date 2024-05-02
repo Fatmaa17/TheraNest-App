@@ -1,31 +1,23 @@
+import 'dart:typed_data';
+
 class ServiceModel {
   int? id;
-  String? name;
-  String? specialty;
+  Uint8List? image;
+  String? name, specialty;
   double? sessionPrice;
   int? experienceYears;
-  List<String>? languages;
-  List<String>? fields;
+  List<String>? languages, fields;
 
   ServiceModel.fromJson(Map<String, dynamic> m) {
     id = m['id']; // Cast the value to int?
+    image = m['image'];
     name = m['name'];
     specialty = m['specialty'];
-    sessionPrice = m['session_price'];
-    experienceYears = m['experience_years'];
-    languages = (m['languages']);
-    fields = (m['fields']);
+    sessionPrice = m['sessionPrice']; // Corrected key name
+    experienceYears = m['experienceYears']; // Corrected key name
+    languages = (m['languages'] as String?)
+        ?.split(','); // Convert comma-separated string to list
+    fields = (m['fields'] as String?)
+        ?.split(','); // Convert comma-separated string to list
   }
 }
-
-
-//   Map<String, dynamic> toJson() => {
-//         'id': id,
-//         'name': name,
-//         'specialty': specialty,
-//         'session_price': sessionPrice,
-//         'experience_years': experienceYears,
-//         'languages': languages,
-//         'fields': fields,
-//       };
-// }
