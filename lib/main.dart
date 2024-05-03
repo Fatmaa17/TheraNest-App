@@ -6,13 +6,19 @@ import 'package:therapy_app/core/routing/my_route.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder:  (context) => MyApp(),
+     )
+   );
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       onGenerateInitialRoutes: (_) => MyRoute.initialRoutes,
       onGenerateRoute: MyRoute.onNavigateByName,
       builder: DevicePreview.appBuilder,

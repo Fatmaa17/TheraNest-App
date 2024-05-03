@@ -2,28 +2,28 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:therapy_app/features/auth/dashboard/features/services/controller/cubit/service_cubit.dart';
+import 'package:therapy_app/features/auth/dashboard/features/activity/controller/cubit/activity_cubit.dart';
+import 'package:therapy_app/features/auth/dashboard/features/activity/controller/cubit/activity_state.dart';
+import 'package:therapy_app/features/auth/dashboard/features/activity/view/component/activity_widget.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/controller/cubit/service_state.dart';
-import 'package:therapy_app/features/auth/dashboard/features/services/view/component/service_widget.dart';
 
-class ServicePage extends StatelessWidget {
-  const ServicePage({Key? key});
+class activityPage extends StatelessWidget {
+  const activityPage({Key? key});
 
   @override
 Widget build(BuildContext context) {
-  ///to stop killing from the memory
-  return BlocProvider.value(
-    value: ServiceCubit.instance,
-    child: BlocBuilder<ServiceCubit, ServiceState>(
+  return BlocProvider(
+    create: (context) => activityCubit(),
+    child: BlocBuilder<activityCubit, activityState>(
       builder: (context, state) {
-        final ServiceCubit controller = context.read<ServiceCubit>();
+        final activityCubit controller = context.read<activityCubit>();
         return Scaffold(
           body: state is ServiceEmpty
               ? const Center(child: Icon(Icons.delete))
               : state is ServiceLoading 
                   ? const Center(child: CircularProgressIndicator())
                   : ListView.builder(
-                      itemBuilder: (_, int index) => ServiceItemWidget(
+                      itemBuilder: (_, int index) => activityItemWidget(
                         serviceModel: controller.services[index],
                         controller:controller ,
                       ),

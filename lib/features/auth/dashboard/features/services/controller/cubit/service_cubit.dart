@@ -7,6 +7,8 @@ import 'package:therapy_app/features/auth/dashboard/features/services/model/repo
 import 'package:therapy_app/features/auth/dashboard/features/services/model/service_model/serviceModel.dart';
 
 class ServiceCubit extends Cubit<ServiceState> {
+///single ton
+  static ServiceCubit instance =ServiceCubit();
   ServiceCubit() : super(ServiceLoading()) {
     initDatabase();
   }
@@ -40,5 +42,13 @@ class ServiceCubit extends Cubit<ServiceState> {
     } else {
       emit(ServiceLoaded());
     }
+  }
+  
+
+  void addItemToActivity(int id,int value){
+    repo.updateActivity(value, id);
+    initDatabase();
+    emit(ServiceLoaded());
+
   }
 }

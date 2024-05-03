@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:therapy_app/features/auth/dashboard/controller/cubit/dashboard_cubit.dart';
+import 'package:therapy_app/features/auth/dashboard/features/activity/view/page/activity_page.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/view/page/service_page.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -17,12 +18,19 @@ class DashboardPage extends StatelessWidget {
               context.read<DashboardCubit>(); // Accessing the cubit instance
           return SafeArea(
             child: Scaffold(
+              appBar: AppBar(
+                actions: [
+                  IconButton(onPressed: (){
+                   Navigator.pushNamed(context, 'add_doctor');
+                  }, icon: Icon(CupertinoIcons.plus))
+                ],
+              ),
               body: PageView(
                 controller: cubit.pageController,
                 onPageChanged: cubit.onChangeTab,
                 children: const [
                   Text('Home'),
-                  Text('Activity'),
+                  activityPage(),
                   ServicePage(),
                   Text('More'),
                 ],

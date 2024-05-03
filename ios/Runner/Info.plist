@@ -44,8 +44,13 @@
 		<key>CADisableMinimumFrameDurationOnPhone</key>
 		<true/>
 		<key>UIApplicationSupportsIndirectInputEvents</key>
+
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>importing images from your gallary to store doctor images</string>
+         <true/>
 	</dict>
 </plist>
