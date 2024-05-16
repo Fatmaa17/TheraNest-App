@@ -3,13 +3,12 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:therapy_app/features/auth/dashboard/features/activity/controller/cubit/activity_state.dart';
-import 'package:therapy_app/features/auth/dashboard/features/services%20copy/controller/cubit/service_cubit.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/model/repo/DBRepo.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/model/service_model/serviceModel.dart';
 
 class activityCubit extends Cubit<activityState> {
-///single ton
-  static activityCubit instance =activityCubit();
+  ///single ton
+  static activityCubit instance = activityCubit();
   activityCubit() : super(activityLoading()) {
     initDatabase();
   }
@@ -34,13 +33,11 @@ class activityCubit extends Cubit<activityState> {
       emit(activityLoaded());
     }
   }
-  
 
-  Future<void> addItemToActivity(int id,int value) async {
+  Future<void> addItemToActivity(int id, int value) async {
     await repo.updateActivity(value, id);
     await initDatabase();
-   await ServiceCubit.instance.initDatabase();
+    await activityCubit.instance.initDatabase();
     emit(activityLoaded());
-
   }
 }
