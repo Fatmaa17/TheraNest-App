@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:therapy_app/features/auth/dashboard/controller/cubit/dashboard_cubit.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/view/page/service_page.dart';
+import 'package:therapy_app/features/auth/dashboard/features/home/view/home_page.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class DashboardPage extends StatelessWidget {
                 controller: cubit.pageController,
                 onPageChanged: cubit.onChangeTab,
                 children: const [
-                  Text('Home'),
+                  HomeView(),
                   Text('Activity'),
                   ServicePage(),
                   Text('More'),

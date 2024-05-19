@@ -46,8 +46,8 @@ flutter:
     - assets/images/01.jpeg
     - assets/images/02.jpeg
     - assets/images/03.jpeg
+    - assets/images/work.jpg
     - assets/images/Th1.jpg
-
   fonts:
     - family: Pacifico
       fonts:
