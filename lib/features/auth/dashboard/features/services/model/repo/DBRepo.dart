@@ -1,4 +1,5 @@
-// ignore_for_file: file_names
+import 'dart:developer';
+import 'dart:typed_data';
 
 import 'package:sqflite/sqflite.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/model/service_model/serviceModel.dart';
@@ -8,12 +9,13 @@ class DBRepo {
 
   Future<void> initDatabase() async {
     database = await openDatabase(
-      (await getDatabasesPath()) + '/services.db',
+      '${await getDatabasesPath()}/servicesDB.db',
       version: 1,
       onCreate: (db, version) {
         db.execute('''
-        CREATE TABLE services (
+        CREATE TABLE servicesTable (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
+          image BLOB,
           name TEXT NOT NULL,
           specialty TEXT,
           sessionPrice REAL,
@@ -26,7 +28,15 @@ class DBRepo {
     );
   }
 
+  Future<List<ServiceModel>> fetchServices() async {
+    log((await database.getVersion()).toString());
+    return (await database.query('servicesTable'))
+        .map((e) => ServiceModel.fromJson(e))
+        .toList();
+  }
+
   Future<void> insertServices(
+    Uint8List image,
     String name,
     String specialty,
     double sessionPrice,
@@ -34,60 +44,14 @@ class DBRepo {
     List<String> languages,
     List<String> fields,
   ) async {
-    database.insert('services', {
+    await database.insert('servicesTable', {
+      'image': image,
       'name': name,
       'specialty': specialty,
-      'session_price': sessionPrice,
-      'experience_years': experienceYears,
+      'sessionPrice': sessionPrice,
+      'experienceYears': experienceYears,
       'languages': languages.join(','),
       'fields': fields.join(','),
     });
   }
-
-  Future<List<ServiceModel>> fetchServices() async {
-    return (await database.query('services'))
-        .map((e) => ServiceModel.fromJson(e))
-        .toList();
-  }
 }
-/*
-  Future<int> create({
-    required String name,
-    String? specialty,
-    double? sessionPrice,
-    int? experienceYears,
-    List<String>? languages,
-    List<String>? fields,
-  }) async {
-    // Ensure that the database is initialized
-    if (_database == null) {
-      await _initDatabase();
-    }
-
-    final Map<String, dynamic> row = {
-      'name': name,
-      'specialty': specialty,
-      'session_price': sessionPrice,
-      'experience_years': experienceYears,
-      'languages': languages?.join(','),
-      'fields': fields?.join(','),
-    };
-
-    return await _database.insert('services', row);
-  }
-
-  static Future<DBRepo?> get instance async {
-    if (_singletonObject == null) {
-      await _initDatabase();
-      _singletonObject = DBRepo._init();
-    }
-    return _singletonObject;
-  }
-
-
-
-  Future<void> insert({required String name, String? specialty}) async {
-    await _database.insert('services', {'name': name, 'specialty': specialty});
-  }
-}
-*/
