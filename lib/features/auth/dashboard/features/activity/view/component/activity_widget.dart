@@ -3,18 +3,18 @@ import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:therapy_app/features/auth/dashboard/features/services/controller/cubit/service_cubit.dart';
+import 'package:therapy_app/features/auth/dashboard/features/activity/controller/cubit/activity_cubit.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/model/service_model/serviceModel.dart';
 
-class ServiceItemWidget extends StatelessWidget {
-  const ServiceItemWidget({
+class activityItemWidget extends StatelessWidget {
+  const activityItemWidget({
     Key? key,
     required this.serviceModel,
     required this.controller,
   }) : super(key: key);
 
   final ServiceModel serviceModel;
-  final ServiceCubit controller;
+  final activityCubit controller;
 
   @override
   Widget build(BuildContext context) {

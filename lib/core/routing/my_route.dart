@@ -1,6 +1,7 @@
 // my_route.dart
 
 import 'package:flutter/material.dart';
+import 'package:therapy_app/features/auth/dashboard/features/new_doctor/view/page/new_doctor.dart';
 import 'package:therapy_app/features/auth/dashboard/view/page/dashboard_page.dart';
 
 class MyRoute {
@@ -13,6 +14,10 @@ class MyRoute {
       case 'dashboard':
         return MaterialPageRoute<dynamic>(
           builder: (BuildContext context) => const DashboardPage(),
+        );
+        case 'add_doctor':
+        return MaterialPageRoute<dynamic>(
+          builder: (BuildContext context) => const doctorPage(),
         );
       default:
         return MaterialPageRoute<dynamic>(

@@ -21,7 +21,8 @@ class DBRepo {
           sessionPrice REAL,
           experienceYears INTEGER,
           languages TEXT,
-          fields TEXT
+          fields TEXT,
+          activity INTEGER
         )
       ''');
       },
@@ -43,6 +44,7 @@ class DBRepo {
     int experienceYears,
     List<String> languages,
     List<String> fields,
+    
   ) async {
     await database.insert('servicesTable', {
       'image': image,
@@ -52,6 +54,22 @@ class DBRepo {
       'experienceYears': experienceYears,
       'languages': languages.join(','),
       'fields': fields.join(','),
+      'activity': 0,
     });
   }
+
+   Future<void> updateActivity(int val,int id)
+ async {
+ await database.update('servicesTable',
+{
+  'activity' :val,
+}
+, where:'id=?',whereArgs: [id]);
+ }
+
+
+  Future<List<ServiceModel>> fetchActivityServices() async {
+  return(await database.query('servicesTable'
+  ,where: 'activity=?',whereArgs: [1])).map((e) => ServiceModel.fromJson(e)).toList();
+ }
 }

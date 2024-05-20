@@ -5,7 +5,7 @@ class ServiceModel {
   Uint8List? image;
   String? name, specialty;
   double? sessionPrice;
-  int? experienceYears;
+  int? experienceYears,activity;
   List<String>? languages, fields;
 
   ServiceModel.fromJson(Map<String, dynamic> m) {
@@ -17,7 +17,8 @@ class ServiceModel {
     experienceYears = m['experienceYears']; // Corrected key name
     languages = (m['languages'] as String?)
         ?.split(','); // Convert comma-separated string to list
-    fields = (m['fields'] as String?)
+    fields = (m['fields'] as String?) 
         ?.split(','); // Convert comma-separated string to list
+     activity =m['activity'];
   }
 }

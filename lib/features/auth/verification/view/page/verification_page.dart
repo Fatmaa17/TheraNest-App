@@ -46,7 +46,9 @@ class verificationPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  SizedBox(
+                    height:15,
+                  ),
                   SizedBox(
                     child: PinCodeTextField(
                       mainAxisAlignment: MainAxisAlignment.center,
