@@ -19,17 +19,10 @@ class DashboardPage extends StatelessWidget {
               context.read<DashboardCubit>(); // Accessing the cubit instance
           return SafeArea(
             child: Scaffold(
-              appBar: AppBar(
-                actions: [
-                  IconButton(onPressed: (){
-                   Navigator.pushNamed(context, 'add_doctor');
-                  }, icon: Icon(CupertinoIcons.plus))
-                ],
-              ),
               body: PageView(
                 controller: cubit.pageController,
                 onPageChanged: cubit.onChangeTab,
-                children: const [
+                children: [
                   HomeView(),
                   Text('Activity'),
                   ServicePage(),
@@ -38,8 +31,9 @@ class DashboardPage extends StatelessWidget {
               ),
               bottomNavigationBar: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
-                selectedItemColor: Colors.black, // Selected item color
-                unselectedItemColor: Colors.grey, // Unselected item color
+                selectedItemColor: Color(0xFF684E39), // Selected item color
+                unselectedItemColor:
+                    Color.fromARGB(255, 160, 156, 120), // Unselected item color
                 currentIndex: cubit.currentIndex,
                 onTap: cubit.onChangeTab,
                 items: const [
