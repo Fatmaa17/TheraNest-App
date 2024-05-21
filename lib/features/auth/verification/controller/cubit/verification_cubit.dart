@@ -14,8 +14,10 @@ class VerificationCubit extends Cubit<VerificationState> {
     if (pinCodeController.text == code) {
       //navigate from registration to home
       print("valid");
+      emit(VerificationSuccess());
     } else {
       print("invalid");
+      emit(VerificationFailure());
     }
   }
 }

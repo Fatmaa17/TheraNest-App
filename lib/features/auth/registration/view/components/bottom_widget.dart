@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:therapy_app/features/auth/login/view/page/login.dart';
 import 'package:therapy_app/features/auth/registration/controller/registration_cubit.dart';
-import 'package:therapy_app/features/auth/verification/view/page/verification_page.dart';
 
 class BottomNavigationWidget extends StatelessWidget {
   final RegistrationCubit controller;
@@ -30,12 +28,7 @@ class BottomNavigationWidget extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      controller.onPressedConfirmButton();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => verificationPage()),
-                      );
+                      controller.onPressedConfirmButton(context);
                     },
                     icon: const Icon(
                       Icons.verified_user,
@@ -61,10 +54,7 @@ class BottomNavigationWidget extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () async {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => loginPage()),
-                        );
+                        Navigator.pushReplacementNamed(context, 'login');
                       },
                       child: const Text(
                         'Login',
