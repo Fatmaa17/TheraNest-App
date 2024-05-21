@@ -32,7 +32,7 @@ class TheraNestValidation{
     return null;
   }
 
- static  String? repeatPasswordValidator({String? value, String? password}) {
+  String? repeatPasswordValidator({String? value, String? password}) {
     if (value != password) {
       return 'Password doesn\'t match';
     }

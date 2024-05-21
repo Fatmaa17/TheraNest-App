@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/model/repo/firebase.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/view/page/service_page.dart';
 
 // Define the FAQItem class
@@ -121,7 +122,18 @@ class HomeView extends StatelessWidget {
                   // Add your notification action here
                 },
               ),
-            ],
+              
+                  IconButton(
+                    onPressed: () async {
+              final firebaseRepo = FirebaseRepo();
+              await firebaseRepo.signOut(context);
+            },
+                    icon: Icon(Icons.exit_to_app),
+                    iconSize: 25,
+                   color: Colors.brown,
+                  )
+                ],
+            
           ),
           SliverPadding(
             padding: EdgeInsets.all(16.0),

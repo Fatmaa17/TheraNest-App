@@ -1,10 +1,13 @@
-// ignore_for_file: sort_child_properties_last
-
 import 'package:flutter/material.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/model/repo/firebase.dart';
 import 'package:therapy_app/features/auth/login/view/page/login.dart';
 
 class dataWidget extends StatelessWidget {
-  const dataWidget({super.key});
+  dataWidget({super.key});
+  TextEditingController emailController = TextEditingController();
+
+  // Create an instance of FirebaseRepo
+  final FirebaseRepo firebaseRepo = FirebaseRepo();
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +44,7 @@ class dataWidget extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 25.0),
               child: TextField(
-                controller: TextEditingController(),
+                controller: emailController,
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Color(0xFF3e3121)),
@@ -58,8 +61,76 @@ class dataWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
+            // Reset Password Button
             MaterialButton(
-              onPressed: () {},
+              onPressed: () async {
+                // Check if email is empty
+                if (emailController.text.isEmpty) {
+                  // Show warning dialog if email is empty
+                  // You can replace this with your preferred way of showing a warning
+                  return showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Error'),
+                        content: Text('Please Enter Your Email'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('OK'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+
+                // Call the reset password function from FirebaseRepo
+                try {
+                  await firebaseRepo.resetPassword(emailController.text);
+                  // Show success dialog
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Done'),
+                        content: Text('Your password reset has been sent to your email'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('OK'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                } catch (e) {
+                  // Handle errors
+                  print("Error: $e"); // Log the error for debugging purposes
+                  // Show error dialog
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Text('Error'),
+                        content: Text('An error occurred. Please enter a valid email'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('OK'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+              },
               child: const Text(
                 'Reset Password',
                 style: TextStyle(
@@ -70,6 +141,7 @@ class dataWidget extends StatelessWidget {
               color: Color(0xFF3e3121),
             ),
             const SizedBox(height: 10),
+            // Back to login button
             MaterialButton(
               onPressed: () {
                 Navigator.push(

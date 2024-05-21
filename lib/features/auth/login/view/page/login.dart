@@ -16,7 +16,7 @@ class loginPage extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
-        child: const dataWidget(),
+        child: DataWidget(),
       ),
       extendBodyBehindAppBar: true,
       extendBody: true,

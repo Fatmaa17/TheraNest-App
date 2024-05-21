@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "164224139983",
+    "project_id": "theranest-8d58e",
+    "storage_bucket": "theranest-8d58e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164224139983:android:ed3a902b68eae7b2f12dba",
+        "android_client_info": {
+          "package_name": "com.example.therapy_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXFGe03vRbAVjJ8smDxLsIehO9y8nRJGs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

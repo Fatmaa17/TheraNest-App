@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/controller/cubit/service_cubit.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/controller/cubit/service_state.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/model/repo/firebase.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/view/component/service_widget.dart';
 
 class ServicePage extends StatelessWidget {
@@ -35,6 +36,15 @@ class ServicePage extends StatelessWidget {
                   },
                   icon: const Icon(CupertinoIcons.bell),
                 ),
+                IconButton(
+                  onPressed: () async {
+                    final firebaseRepo = FirebaseRepo();
+                    await firebaseRepo.signOut(context);
+                  },
+                  icon: Icon(Icons.exit_to_app),
+                  iconSize: 25,
+                  color: Colors.brown,
+                )
               ],
             ),
             body: Column(

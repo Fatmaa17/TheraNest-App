@@ -6,6 +6,7 @@ import 'package:therapy_app/features/auth/dashboard/features/activity/controller
 import 'package:therapy_app/features/auth/dashboard/features/activity/controller/cubit/activity_state.dart';
 import 'package:therapy_app/features/auth/dashboard/features/activity/view/component/activity_widget.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/controller/cubit/service_state.dart';
+import 'package:therapy_app/features/auth/dashboard/features/services/model/repo/firebase.dart';
 
 class activityPage extends StatelessWidget {
   const activityPage({Key? key});
@@ -18,6 +19,17 @@ Widget build(BuildContext context) {
       builder: (context, state) {
         final activityCubit controller = context.read<activityCubit>();
         return Scaffold(
+          appBar: AppBar( actions: [
+                  IconButton(
+                    onPressed: () async {
+              final firebaseRepo = FirebaseRepo();
+              await firebaseRepo.signOut(context);
+            },
+                    icon: Icon(Icons.exit_to_app),
+                    iconSize: 25,
+                   color: Colors.brown,
+                  )
+                ],),
           body: state is ServiceEmpty
               ? const Center(child: Icon(Icons.delete))
               : state is ServiceLoading 
