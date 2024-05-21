@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:therapy_app/core/consts/theme_data.dart';
 import 'package:therapy_app/core/routing/my_route.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:therapy_app/features/auth/dashboard/features/services/model/repo/firebase.dart';
@@ -36,6 +37,10 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeProvider>(builder: (context, themeprovider, child) {
     return MaterialApp(
       debugShowCheckedModeBanner:false,
+       theme: Styles.themeData(
+            isDarkTheme: themeprovider.getIsDarkTheme,
+            context: context,
+          ),
       onGenerateInitialRoutes: (_) => MyRoute.initialRoutes,
       onGenerateRoute: MyRoute.onNavigateByName,
       builder: DevicePreview.appBuilder,
