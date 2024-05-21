@@ -28,6 +28,7 @@ dependencies:
   firebase_auth: ^4.19.5
   google_sign_in: ^6.2.1
   awesome_dialog: ^3.2.1
+  provider: ^6.1.1
 
 flutter_native_splash:
   background_image: "assets/images/SplashScreen.jpg"
@@ -58,6 +59,7 @@ flutter:
     - assets/images/nWork.jpg
     - assets/images/Th1.jpg
     - assets/images/google.png
+    - assets/images/theme.png
   fonts:
     - family: Pacifico
       fonts:
