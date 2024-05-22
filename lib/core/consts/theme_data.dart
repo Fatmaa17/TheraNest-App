@@ -25,38 +25,38 @@ class Styles {
           titleTextStyle:
           TextStyle(color: isDarkTheme ? Colors.white : Colors.black),
         ),
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          contentPadding: const EdgeInsets.all(10.0),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              width: 1.0,
-              color: Colors.transparent,
-            ),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              width: 1.0,
-              color: isDarkTheme? Colors.white : Colors.black,
-            ),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                width: 1.0,
-                color: Theme.of(context).colorScheme.error
-            ),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                width: 1.0,
-                color: Theme.of(context).colorScheme.error
-            ),
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-        )
+        // inputDecorationTheme: InputDecorationTheme(
+        //   filled: true,
+        //   contentPadding: const EdgeInsets.all(10.0),
+        //   enabledBorder: OutlineInputBorder(
+        //     borderSide: const BorderSide(
+        //       width: 1.0,
+        //       color: Colors.transparent,
+        //     ),
+        //     borderRadius: BorderRadius.circular(8.0),
+        //   ),
+        //   focusedBorder: OutlineInputBorder(
+        //     borderSide: BorderSide(
+        //       width: 1.0,
+        //       color: isDarkTheme? Colors.white : Colors.black,
+        //     ),
+        //     borderRadius: BorderRadius.circular(8.0),
+        //   ),
+        //   errorBorder: OutlineInputBorder(
+        //     borderSide: BorderSide(
+        //         width: 1.0,
+        //         color: Theme.of(context).colorScheme.error
+        //     ),
+        //     borderRadius: BorderRadius.circular(8.0),
+        //   ),
+        //   focusedErrorBorder: OutlineInputBorder(
+        //     borderSide: BorderSide(
+        //         width: 1.0,
+        //         color: Theme.of(context).colorScheme.error
+        //     ),
+        //     borderRadius: BorderRadius.circular(8.0),
+        //   ),
+        // )
     );
   }
 }
